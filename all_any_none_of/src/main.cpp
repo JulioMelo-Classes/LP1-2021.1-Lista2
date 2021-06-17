@@ -54,10 +54,10 @@ int main ( void )
         int A[]{ 10, 20, 30, 40, 50, 60, 70 };
         bool result;
 
-        result = which_lib::all_of( std::begin(A), std::end(A),
+        result = which_lib::all_of( std::begin(A), std::begin(A),
                 []( const int& e ){ return e > 30; } );
 
-        EXPECT_TRUE( result );
+        EXPECT_FALSE( result );
     }
 
     //== any_of
@@ -100,10 +100,10 @@ int main ( void )
         int A[]{ 10, 20, 30, 40, 50, 60, 70 };
         bool result;
 
-        result = which_lib::any_of( std::begin(A), std::end(A),
+        result = which_lib::any_of( std::begin(A), std::begin(A),
                 []( const int& e ){ return e > 30; } );
 
-        EXPECT_TRUE( result );
+        EXPECT_FALSE( result );
     }
 
     //== none_of
@@ -146,7 +146,7 @@ int main ( void )
         int A[]{ 10, 20, 30, 40, 50, 60, 70 };
         bool result;
 
-        result = which_lib::none_of( std::begin(A), std::end(A),
+        result = which_lib::none_of( std::begin(A), std::begin(A),
                 []( const int& e ){ return e > 30; } );
 
         EXPECT_TRUE( result );
